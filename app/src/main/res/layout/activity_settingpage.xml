@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/light_blue_background"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/msgimg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_message_24"
+                    android:padding="5dp"/>
+
+                    <TextView
+                        android:id="@+id/txtmsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:layout_toEndOf="@+id/msgimg"
+                        android:textSize="18dp"
+                        android:text="MESSAGE PERMISSION "/>
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_toEndOf="@+id/txtmsg"
+                    android:switchMinWidth="60dp"
+                    android:padding="10dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/contactimg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_contacts_24"
+                    android:padding="5dp"/>
+
+                <TextView
+                    android:id="@+id/contacttxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_toEndOf="@+id/contactimg"
+                    android:textSize="18dp"
+                    android:text="CONTACT PERMISSION"/>
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_toEndOf="@+id/contacttxt"
+                    android:switchMinWidth="60dp"
+                    android:padding="10dp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/locationimg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_location_on_24"
+                    android:padding="5dp"/>
+
+                <TextView
+                    android:id="@+id/locationtxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_toEndOf="@+id/locationimg"
+                    android:textSize="18dp"
+                    android:text="LOCATION"/>
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="160dp"
+                    android:layout_toEndOf="@+id/locationtxt"
+                    android:switchMinWidth="60dp"
+                    android:padding="10dp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/logoutimg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_logout_24"
+                    android:padding="5dp"/>
+
+                <TextView
+                    android:id="@+id/logouttxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_toEndOf="@+id/logoutimg"
+                    android:textSize="18dp"
+                    android:text="LOG OUT"/>
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/deleteimg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_delete_24"
+                    android:padding="5dp"/>
+
+                <TextView
+                    android:id="@+id/deletetxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_toEndOf="@+id/deleteimg"
+                    android:textSize="18dp"
+                    android:text="DELETE ACCOUNT"/>
+
+
+            </RelativeLayout>
+
+
+
+
+
+</LinearLayout>
+    </ScrollView>
+</LinearLayout>

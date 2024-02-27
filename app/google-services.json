@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "391960002496",
+    "project_id": "rentcargui",
+    "storage_bucket": "rentcargui.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391960002496:android:4a5a6efd7e57c9d62a9225",
+        "android_client_info": {
+          "package_name": "com.example.rentcar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQhMVxshfQjWXIZS6ZRZIOEgyWmVQkJss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
