@@ -6,22 +6,22 @@
     app:startDestination="@id/homeFragment2">
     <fragment
         android:id="@+id/homeFragment2"
-        android:name="com.example.rentcar.HomeFragment"
+        android:name="com.example.rentcar.ui.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.rentcar.ProfileFragment"
+        android:name="com.example.rentcar.ui.fragment.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/mytripFragment"
-        android:name="com.example.rentcar.MytripFragment"
+        android:name="com.example.rentcar.ui.fragment.MytripFragment"
         android:label="fragment_mytrip"
         tools:layout="@layout/fragment_mytrip" />
     <fragment
         android:id="@+id/settingFragment"
-        android:name="com.example.rentcar.SettingFragment"
+        android:name="com.example.rentcar.ui.fragment.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
 </navigation>
