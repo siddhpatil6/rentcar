@@ -15,100 +15,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:padding="20dp">
-
-                <ImageView
-                    android:id="@+id/msgimg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_message_24"
-                    android:padding="5dp"/>
-
-                <TextView
-                    android:id="@+id/txtmsg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:layout_toEndOf="@+id/msgimg"
-                    android:textSize="18dp"
-                    android:text="MESSAGE PERMISSION "/>
-
-                <Switch
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:layout_toEndOf="@+id/txtmsg"
-                    android:switchMinWidth="60dp"
-                    android:padding="10dp" />
-            </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp">
-
-                <ImageView
-                    android:id="@+id/contactimg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_contacts_24"
-                    android:padding="5dp"/>
-
-                <TextView
-                    android:id="@+id/contacttxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:layout_toEndOf="@+id/contactimg"
-                    android:textSize="18dp"
-                    android:text="CONTACT PERMISSION"/>
-
-                <Switch
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:layout_toEndOf="@+id/contacttxt"
-                    android:switchMinWidth="60dp"
-                    android:padding="10dp" />
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp">
-
-                <ImageView
-                    android:id="@+id/locationimg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_location_on_24"
-                    android:padding="5dp"/>
-
-                <TextView
-                    android:id="@+id/locationtxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:layout_toEndOf="@+id/locationimg"
-                    android:textSize="18dp"
-                    android:text="LOCATION"/>
-
-                <Switch
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="160dp"
-                    android:layout_toEndOf="@+id/locationtxt"
-                    android:switchMinWidth="60dp"
-                    android:padding="10dp" />
-            </RelativeLayout>
-
-
-            <RelativeLayout
+                android:id = "@+id/rlLogout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
@@ -133,35 +42,33 @@
 
 
             </RelativeLayout>
+
             <RelativeLayout
+                android:id = "@+id/rlExit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="50dp"
                 android:padding="20dp">
 
                 <ImageView
-                    android:id="@+id/deleteimg"
+                    android:id="@+id/exitapp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/baseline_delete_24"
                     android:padding="5dp"/>
 
                 <TextView
-                    android:id="@+id/deletetxt"
+                    android:id="@+id/exitapptxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:layout_marginStart="50dp"
-                    android:layout_toEndOf="@+id/deleteimg"
+                    android:layout_toEndOf="@+id/exitapp"
                     android:textSize="18dp"
-                    android:text="DELETE ACCOUNT"/>
+                    android:text="Exit App"/>
 
 
             </RelativeLayout>
-
-
-
-
 
         </LinearLayout>
     </ScrollView>

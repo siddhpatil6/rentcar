@@ -4,30 +4,46 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.example.rentcar.R
+import com.example.rentcar.custom.PreferenceManager
 import com.example.rentcar.databinding.ActivityLoginBinding
+import com.example.rentcar.ui.CarListViewModel
+import com.example.rentcar.ui.home.CarListViewModelFactory
+import com.example.rentcar.ui.models.LoginDetailModel
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private val carListViewModel: CarListViewModel by viewModels { CarListViewModelFactory() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        var prefManager = PreferenceManager(applicationContext)
 
         binding.signuptxt.setOnClickListener {
             val i = Intent(this, SignUpActivity::class.java)
             startActivity(i)
         }
 
+        carListViewModel.loginResponseLiveData.observe(this, Observer { loginResponseModel ->
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            prefManager.isLoggedIn = true
+            prefManager.saveProfile(loginResponseModel)
 
-            binding.loginBtn.setOnClickListener {
+        })
+
+        binding.loginBtn.setOnClickListener {
                 if (validateEmail() && validatePassword()) {
-                    // If both email and password are valid, proceed with login
-                    val i = Intent(this, HomeActivity::class.java)
-                    startActivity(i)
+                    carListViewModel.getLogin(LoginDetailModel(email = binding.Email.text.toString(), password = binding.Password.text.toString()))
                 }
             }
         }

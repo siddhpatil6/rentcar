@@ -26,6 +26,9 @@
             android:name=".ui.activity.SignUpActivity"
             android:exported="true" />
         <activity
+            android:name=".ui.fragment.CarDetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.activity.SplashActivity"
             android:exported="true">
             <intent-filter>

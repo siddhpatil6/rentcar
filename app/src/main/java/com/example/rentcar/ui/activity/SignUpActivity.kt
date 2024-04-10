@@ -6,9 +6,13 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rentcar.R
 import com.example.rentcar.databinding.ActivitySignUpBinding
+import com.example.rentcar.ui.CarListViewModel
+import com.example.rentcar.ui.home.CarListViewModelFactory
+import com.example.rentcar.ui.models.UserDetailModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
@@ -17,6 +21,8 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
+    private val carListViewModel: CarListViewModel by viewModels { CarListViewModelFactory() }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +46,9 @@ class SignUpActivity : AppCompatActivity() {
 
             if (validateFullName(fullName) && validateEmail(email) && validatePassword(password) && validatePhone(phone)) {
                 // Proceed with the registration process
+
+                carListViewModel.setSignup(UserDetailModel(email=email, name = fullName, password= password, phone = phone))
+
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {

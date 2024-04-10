@@ -23,9 +23,8 @@ class APIClient @Inject constructor() {
             .setLenient()
             .create()
 
-
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://b1b535e55bf646fd8570eb7a8e673ab7.api.mockbin.io")
+            .baseUrl("https://496c-203-192-213-8.ngrok-free.app/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(mOkHttpClient)
             .build()

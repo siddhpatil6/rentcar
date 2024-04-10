@@ -1,11 +1,13 @@
 package com.example.rentcar.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
@@ -16,22 +18,20 @@ import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.rentcar.Adapter.CarAdapter
 import com.example.rentcar.R
+import com.example.rentcar.ReplaceFragmentInterface
 import com.example.rentcar.databinding.FragmentHomeBinding
 import com.example.rentcar.ui.CarListViewModel
 import com.example.rentcar.ui.di.provider.CarListComponentProvider
 import com.example.rentcar.ui.home.CarListViewModelFactory
+import com.example.rentcar.ui.models.Result
 
-class HomeFragment : Fragment(), ReplaceFragmentInterface,LifecycleOwner {
+class HomeFragment : Fragment(),LifecycleOwner,ReplaceFragmentInterface {
     private lateinit var binding: FragmentHomeBinding
 
     private val carListViewModel: CarListViewModel by viewModels { CarListViewModelFactory() }
 
     init {
         CarListComponentProvider.getCarListComponent().inject(this)
-    }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -41,30 +41,36 @@ class HomeFragment : Fragment(), ReplaceFragmentInterface,LifecycleOwner {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater,container,false)
         binding.exploremoretxt.setOnClickListener {
-            replaceFragment(AllcarFragment())
+            callReplaceFragment(CarListFragment())
         }
-
         return binding.root
 
     }
 
-    override fun replaceFragment(fragment: Fragment) {
+     fun callReplaceFragment(fragment: Fragment) {
         // Create a FragmentManager
         val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
-
         // Begin a transaction
         val transaction = fragmentManager.beginTransaction()
-
         // Replace the current fragment with the new fragment
         transaction.replace(R.id.nav_host_fragment, fragment)
-
         // Add the transaction to the back stack (optional)
         transaction.addToBackStack(null)
-
         // Commit the transaction
         transaction.commit()
     }
 
+     fun onBackPressed() {
+         context?.applicationContext?.let {
+             AlertDialog.Builder(it)
+                 .setMessage("Are you sure you want to exit?")
+                 .setPositiveButton("Yes") { _, _ ->
+                     activity?.finishAffinity()
+                 }
+                 .setNegativeButton("No", null)
+                 .show()
+         }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -76,20 +82,15 @@ class HomeFragment : Fragment(), ReplaceFragmentInterface,LifecycleOwner {
         val imageSlider = binding.imageSlider
         imageSlider.setImageList(imagelist)
         imageSlider.setImageList(imagelist,ScaleTypes.FIT)
-
-
         imageSlider.setItemClickListener(object :ItemClickListener{
             override fun doubleClick(position: Int) {
                 TODO("Not yet implemented")
             }
 
             override fun onItemSelected(position: Int) {
-                val itemPosition = imagelist[position]
                 val itemMessage = "Selected Image $position"
                 Toast.makeText(requireContext(),itemMessage,Toast.LENGTH_SHORT).show()
             }
-
-
         })
 
 
@@ -99,19 +100,17 @@ class HomeFragment : Fragment(), ReplaceFragmentInterface,LifecycleOwner {
         binding.PopularRecyclerView.adapter = adapter
 
         carListViewModel.carListLiveData.observe(viewLifecycleOwner, Observer { carListResponseModel ->
-            adapter.carList.clear()
-            adapter.carList.addAll(carListResponseModel.cars)
-            adapter.notifyDataSetChanged()
-
+            adapter.submitList(carListResponseModel.result)
         })
 
     }
-    companion object {
 
+    override fun callCarDetailActivity(fragment: Result) {
+        val intent = Intent(context, CarDetailActivity::class.java)
+        intent.putExtra("carItem",fragment)
+        startActivity(intent)
     }
 
+
 }
 
-interface ReplaceFragmentInterface{
-    fun replaceFragment(fragment: Fragment)
-}
