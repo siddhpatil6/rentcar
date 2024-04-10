@@ -57,7 +57,7 @@ class CarDetailActivity : AppCompatActivity(), DateSelectedListener,TimeSelected
 
         carListViewModel.orderReponseLiveData.observe(this) {
             Toast.makeText(applicationContext, "Car Successfully Booked.", Toast.LENGTH_SHORT).show()
-            fragmentManager?.popBackStack()
+            finish()
         }
 
         binding.btnConfirmBooking.setOnClickListener {
@@ -73,17 +73,7 @@ class CarDetailActivity : AppCompatActivity(), DateSelectedListener,TimeSelected
         }
     }
 
-    private fun showDatePickerDialog() {
-        // Implement date picker dialog logic here
-    }
 
-    private fun showTimePickerDialog() {
-        // Implement time picker dialog logic here
-    }
-
-    private fun confirmBooking() {
-        // Handle booking confirmation logic here
-    }
 
     override fun onDateSelected(year: Int, month: Int, dayOfMonth: Int) {
         binding.txtSelectDate.text = "$dayOfMonth / $month / $year"

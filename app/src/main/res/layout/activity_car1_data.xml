@@ -13,6 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical">
 
             <com.denzcoskun.imageslider.ImageSlider
@@ -31,6 +32,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:text="Car Name :"
+                    android:textStyle="bold"
 
                     android:textSize="24sp" />
 
@@ -56,6 +58,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="Car Seats :"
+                    android:textStyle="bold"
                     android:textSize="18sp" />
 
                 <TextView
@@ -79,6 +82,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="16dp"
+                    android:textStyle="bold"
 
                     android:text="Price :"
                     android:textSize="18sp" />
@@ -112,6 +116,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
+                    android:textStyle="bold"
                     android:layout_marginEnd="16dp"
                     android:text="Select Date:" />
 
@@ -137,6 +142,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
+                    android:textStyle="bold"
                     android:text="Select Time:" />
 
             </LinearLayout>
@@ -147,19 +153,21 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Car Detail"
-                android:textSize="18sp" />
+                android:textStyle="bold"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tvDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:textSize="18sp" />
 
             <Button
                 android:id="@+id/btnConfirmBooking"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="100dp"

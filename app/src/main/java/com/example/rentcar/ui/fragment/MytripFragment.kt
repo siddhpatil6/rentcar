@@ -52,10 +52,11 @@ class MytripFragment : Fragment() {
             adapter.submitList(orderListResponseModel.orders)
             binding.rvOrderedList.adapter = adapter
         })
+    }
 
+    override fun onResume() {
+        super.onResume()
         carListViewModel.getCarBookingList(OrderListRequestModel(userId = profileResponseModel?.user?._id ?:""))
-
-
     }
 
 }
